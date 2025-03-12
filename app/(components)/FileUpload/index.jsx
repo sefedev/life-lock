@@ -34,8 +34,9 @@ const FileUpload = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if(formData.files.length===0) return alert("No document attached")
+      
     setSubmissionStatus("submitting"); // Set status to submitting
-
     const form = new FormData();
     for (const key in formData) {
       if (key === "files") {
@@ -73,7 +74,6 @@ const FileUpload = () => {
   return (
     <form>
     <div className="mt-8">
-      <p className="mb-2 text-left">Upload Reference</p>
       <input
         type="file"
         id="fileInput"
@@ -99,11 +99,10 @@ const FileUpload = () => {
     </div>
     <button
               type="submit"
-              className={` relative px-4 my-8 py-2 overflow-hidden text-white rounded md:w-48 bg-blue-900`}
+              className="relative px-4 my-8 py-2 overflow-hidden text-white rounded md:w-48 cursor-pointer hover:bg-blue-500 bg-blue-900 transition duration-200"
               onClick={handleSubmit}
               disabled={submissionStatus === "submitting"}
             >
-              <span className={`relative z-10 w-full grid place-items-center`}>
                 {submissionStatus === "submitting" ? (
                   <svg
                     className="size-6 animate-spin"
@@ -128,8 +127,6 @@ const FileUpload = () => {
                 ) : (
                   "Submit"
                 )}
-              </span>
-              <span className="absolute inset-0 transition-opacity duration-300 ease-in-out bg-green-700 opacity-0 hover:opacity-100"></span>
             </button>
 
     </form>
