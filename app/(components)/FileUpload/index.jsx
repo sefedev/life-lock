@@ -53,6 +53,7 @@ const FileUpload = () => {
 
       if (response.ok) {
         setSubmissionStatus("success");
+        alert("Documents Uploaded Sucessfully")
       } else {
         setSubmissionStatus("error");
 
