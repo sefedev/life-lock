@@ -41,7 +41,7 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="flex items-center">
+      <footer className="flex items-center  px-4 md:px-16 lg:px2-24">
       <Image src="/logo.png" alt="logo" width={100} height={0} className=""/>
       <span className="w-full flex-1 text-center text-xs">Copyright &copy; LifeLock Inc.</span>
       </footer>
